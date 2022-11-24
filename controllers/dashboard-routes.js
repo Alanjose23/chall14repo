@@ -9,7 +9,7 @@ router.get('/', withAuth, async (req, res) => {
         userId: req.session.userId,
       },
     });
-
+// if with authentication you can go in and see all posts with all posts admin handlebars
     const posts = postData.map((post) => post.get({ plain: true }));
 
     res.render('all-posts-admin', {
@@ -26,7 +26,7 @@ router.get('/new', withAuth, (req, res) => {
     layout: 'dashboard',
   });
 });
-
+// new post layout
 router.get('/edit/:id', withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id);
@@ -45,5 +45,5 @@ router.get('/edit/:id', withAuth, async (req, res) => {
     res.redirect('login');
   }
 });
-
+// edit post with the get request, which will bring you to the appropriate handlebar
 module.exports = router;

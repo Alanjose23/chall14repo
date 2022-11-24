@@ -7,10 +7,11 @@ router.get('/', async (req, res) => {
     const postData = await Post.findAll({
       include: [User],
     });
-
+// find all posts and include the user object
     const posts = postData.map((post) => post.get({ plain: true }));
 
     res.render('all-posts', { posts });
+    // passed post objects to all posts
   } catch (err) {
     res.status(500).json(err);
   }
@@ -19,6 +20,7 @@ router.get('/', async (req, res) => {
 // get single post
 router.get('/post/:id', async (req, res) => {
   try {
+    // find all assosiated comments, along with the use for a post
     const postData = await Post.findByPk(req.params.id, {
       include: [
         User,
@@ -46,8 +48,8 @@ router.get('/login', (req, res) => {
     res.redirect('/');
     return;
   }
-
-  res.render('login');
+// if logged in then send to main page if else go to signup handlebars
+  res.render('signup');
 });
 
 router.get('/signup', (req, res) => {
