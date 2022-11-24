@@ -19,7 +19,8 @@ router.get('/', withAuth, async (req, res) => {
     const newComment = await Comment.findAll({
       include: [User],
     });
-    res.render('singlecomment', {newComment, loggedIn: req.session.loggedIn});
+    const comments = newComment.map((post) => post.get({ plain: true }));
+    res.render('singlecommment', {comments, loggedIn: req.session.loggedIn});
   } catch (err) {
     res.status(500).json(err);
   }

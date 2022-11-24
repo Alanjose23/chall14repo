@@ -7,6 +7,12 @@ const logout = async function() {
   if (response.ok) {
     document.location.replace('/');
   } else {
+    if (!response) {
+      res
+        .status(400)
+        .json({ message: 'Failed to log out, no response' });
+      return;
+    }
     alert('Failed to log out');
   }
 };

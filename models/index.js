@@ -1,7 +1,7 @@
 const User = require('./User');
 const Post = require('./Post');
 const Comment = require('./Comment');
-
+// create unions 
 Post.belongsTo(User, {
   foreignKey: 'userId',
   onDelete: 'CASCADE'

@@ -16,6 +16,12 @@ const loginFormHandler = async function(event) {
   if (response.ok) {
     document.location.replace('/dashboard');
   } else {
+    if (!response) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password, please try again' });
+      return;
+    }
     alert('Failed to login');
   }
 };
