@@ -8,7 +8,9 @@ This is creating a tech blog, which can properly display and create comments, us
 
 https://github.com/Alanjose23/chall14repo
 
-## heroku deployment
+## heroku deployment - had errors with sequelize in the database
+![image](https://user-images.githubusercontent.com/112830964/203695619-5127d48f-5343-410e-8bc9-3215debc1a1d.png)
+
 
 
 
